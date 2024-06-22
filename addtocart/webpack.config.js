@@ -1,10 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require("dotenv-webpack");
+
 const deps = require("./package.json").dependencies;
-module.exports = (_, argv) => ({
+module.exports = {
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:3003/",
   },
 
   resolve: {
@@ -12,8 +12,12 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 3003,
     historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    open: false,
   },
 
   module: {
@@ -41,29 +45,25 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "pdp",
+      name: "addtocart",
       filename: "remoteEntry.js",
       remotes: {
-        host: "host@http://localhost:8080/remoteEntry.js",
         cart: "cart@http://localhost:3002/remoteEntry.js",
-        addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./AddToCart": "./src/AddToCart.jsx",
+        "./placeAddToCart": "./src/placeAddToCart.js",
+      },
       shared: {
         ...deps,
-        react: {
+        "solid-js": {
           singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
+          requiredVersion: deps["solid-js"],
         },
       },
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv(),
   ],
-});
+};
