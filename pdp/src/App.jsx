@@ -6,7 +6,7 @@ import "remixicon/fonts/remixicon.css";
 import Loader from "./components/Loader";
 import Footer from "host/Footer";
 import Header from "host/Header";
-import PDPContent from "./PDPContent";
+import PDPContent from "./components/PDPContent";
 import SafeComponent from "./SafeComponent";
 
 import "./index.scss";

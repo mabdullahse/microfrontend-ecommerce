@@ -1,6 +1,8 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: [
+    //relative
+    { pattern: /relative/, variants: ["sm", "md", "lg", "xl", "desktop"] },
     // border
     { pattern: /border/, variants: ["sm", "md", "lg", "xl", "desktop"] },
     // absolute

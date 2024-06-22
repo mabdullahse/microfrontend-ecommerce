@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { currency } from "host/products";
-import Login from "./Login";
-import MiniCart from "./MiniCart";
 
-import { jwt, login, cart } from "../cart";
+import { cart, clearCart } from "../cart";
 
 function CartContent() {
   const [items, setItems] = useState([]);

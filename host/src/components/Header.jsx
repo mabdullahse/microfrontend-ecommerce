@@ -1,4 +1,5 @@
 import Login from "cart/Login";
+import MiniCart from "cart/MiniCart";
 
 const Header = () => {
   return (
@@ -26,6 +27,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block relative">
+          <MiniCart />
           <Login />
         </div>
 

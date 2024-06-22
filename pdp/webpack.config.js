@@ -45,8 +45,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         host: "host@http://localhost:8080/remoteEntry.js",
-        pdp: "pdp@http://localhost:8081/remoteEntry.js",
         cart: "cart@http://localhost:3002/remoteEntry.js",
+        pdp: "pdp@http://localhost:",
       },
       exposes: {},
       shared: {
