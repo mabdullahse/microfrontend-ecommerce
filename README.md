@@ -5,7 +5,7 @@ This repository contains a microfrontend application consisting of four separate
 ### Mockups
 
 <div>
-<img src="./app.png" alt="Mockup 1" width="500" height="500" style="display:inline-block;"/>
+<img src="./app.png" alt="Mockup 1" width="900" height="500" style="display:inline-block;"/>
 
 </div>
 
